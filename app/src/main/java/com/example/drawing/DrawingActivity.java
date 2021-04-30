@@ -109,7 +109,14 @@ public class DrawingActivity extends AppCompatActivity {
     }
 
     public void addPath(int id, float x, float y) {
-        mp = MediaPlayer.create(DrawingActivity.this, R.raw.song2);
+
+        if (mp != null) {
+            mp.release();
+            mp = MediaPlayer.create(DrawingActivity.this, R.raw.song2);
+        }
+        else {
+            mp = MediaPlayer.create(DrawingActivity.this, R.raw.song2);
+        }
         myCanvas.addPath(id, x, y);
     }
 
